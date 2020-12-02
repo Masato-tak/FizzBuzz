@@ -34,12 +34,12 @@ namespace WebAppDemo.Helpers
                 }
                 else 
                 {
-                    if (num % 3 > 0) {
+                    if (num % 3 != 0) {
 
                         output.Add($"Divided { inputList[i] } by 3");
                     }
 
-                    if (num % 5 > 0)
+                    if (num % 5 != 0)
                     {
                         output.Add($"Divided { inputList[i] } by 5");
                     }

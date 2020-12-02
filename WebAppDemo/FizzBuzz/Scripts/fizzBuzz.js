@@ -22,16 +22,17 @@
         });
 
     };
-
+    
     const submit = function (data) {
         
-        
-        //side note: if url length is larger than 2048, we would use POST and put param in the body but for simplicity, we can stick with GET
+        //side note: if url length is larger than 2048, we would use POST and put param in the body but for the demo, we will assume GET would suffice.
+
+        let baseUrl = config.isProd ? `${config.prod.baseUrl}` : config.local.baseUrl + ":" + location.port;
 
         let settings = {
             method: "GET",
             dataType: "JSON",
-            url: `http://masatowebapp.azurewebsites.net/api/FizzBuzz/GetFizzBuzz?` + $.param({ input: data }),
+            url: `${baseUrl}/api/FizzBuzz/GetFizzBuzz?` + $.param({ input: data }),
             success: function (data) {
                 _printResult(data);
             },
