@@ -78,6 +78,26 @@ namespace FizzBuzzUnitTest
         }
 
         [TestMethod]
+        public void TestPrint_NegativeInt()
+        {
+            var input = new string[] { "-15" };
+
+            var output = FizzBuzzHelper.Print(input);
+
+            Assert.AreEqual("FizzBuzz", output[0]);
+        }
+
+        [TestMethod]
+        public void TestPrint_OutsideRangeOfInt()
+        {
+            var input = new string[] { "2147483648" };
+
+            var output = FizzBuzzHelper.Print(input);
+
+            Assert.AreEqual("Invalid Item", output[0]);
+        }
+
+        [TestMethod]
         public void TestPrint_List()
         {
             var input = new string[] { "1","3","5","15","A"," ","","100" };
