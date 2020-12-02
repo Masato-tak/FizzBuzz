@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>FizzBuzz</title>
+
+    <link rel="stylesheet" href="~/FizzBuzz/Styles/fizzBuzz.css" />
+
+</head>
+<body>
+    <div class="title">FizzBuzz Demo</div>
+    <div class="author">author: Masato Takayashiki</div>
+
+    <div id="container" class="container">
+
+        <div class="wrapper">
+            
+            <div>Please enter values in comma separated format.</div>
+            <div>Example: 1,2,3,4,5</div>
+            <input type="text" id="textbox" class="textbox" />
+            
+            <div class="action-container">
+                <div id="btnClear" class="btn-clear btn"><span>CLEAR</span></div>
+                <div id="btnSubmit" class="btn-submit btn"><span>SUBMIT</span></div>
+            </div>
+
+            <!-- API output displays here -->
+            <div class="result-container">
+                
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/FizzBuzz\Scripts\main.js"></script>
+    <script src="~/FizzBuzz\Scripts\fizzBuzz.js"></script>
+
+</body>
+</html>
