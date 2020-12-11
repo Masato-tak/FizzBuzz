@@ -9,20 +9,6 @@ namespace WebAppDemo.Helpers
 {
     public static class FizzBuzzHelper
     {
-        public static List<ICondition> conditions = new List<ICondition>()
-        {
-            new InvalidMessage(),
-            new FizzBuzzMessage(),
-            new FizzMessage(),
-            new BuzzMessage(),
-        };
-
-        public static List<ICondition> conditionsContinuation = new List<ICondition>
-        {
-            new OperationThreeMessage(),
-            new OperationFiveMessage(),
-        };
-
         public static List<string> Print(string[] inputList)
         {
             var output = new List<string>();
@@ -37,8 +23,10 @@ namespace WebAppDemo.Helpers
 
         public static void PopulateList(string input, List<string> output)
         {
+            var factory = new FizzBuzzFactory();
+            
             //for those condition, exit out as soon as one condition is met
-            foreach (var condition in conditions)
+            foreach (var condition in factory.GetConditions())
             {
                 if (condition.Matches(input))
                 {
@@ -47,8 +35,8 @@ namespace WebAppDemo.Helpers
                 }
             }
             
-            //conditions that need to be checked continously
-            foreach(var condition in conditionsContinuation)
+            //conditions that need to be checked continuously
+            foreach(var condition in factory.GetContinuousConditions())
             {
                 if (condition.Matches(input))
                 {

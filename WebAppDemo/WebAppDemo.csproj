@@ -132,6 +132,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BuzzMessage.cs" />
     <Compile Include="Controllers\FizzBuzzController.cs" />
+    <Compile Include="Controllers\FizzBuzzFactory.cs" />
     <Compile Include="Controllers\FizzBuzzMessage.cs" />
     <Compile Include="Controllers\FizzMessage.cs" />
     <Compile Include="Controllers\HomeController.cs" />
