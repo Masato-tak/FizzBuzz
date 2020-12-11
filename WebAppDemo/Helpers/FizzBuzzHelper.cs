@@ -3,50 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using WebAppDemo.Controllers;
 
 namespace WebAppDemo.Helpers
 {
     public static class FizzBuzzHelper
     {
+        public static List<ICondition> conditions = new List<ICondition>()
+        {
+            new InvalidMessage(),
+            new FizzBuzzMessage(),
+            new FizzMessage(),
+            new BuzzMessage(),
+        };
+
+        public static List<ICondition> conditionsContinuation = new List<ICondition>
+        {
+            new OperationThreeMessage(),
+            new OperationFiveMessage(),
+        };
+
         public static List<string> Print(string[] inputList)
         {
             var output = new List<string>();
-
+           
             for (var i = 0; i < inputList.Length; i++)
             {
-                var isNumeric = int.TryParse(inputList[i], out int num);
-
-                if (isNumeric == false)
-                {
-                    output.Add("Invalid Item");
-                }
-                else if (num % 3 == 0 && num % 5 == 0)
-                {
-                    output.Add("FizzBuzz");
-                }
-                else if (num % 3 == 0)
-                {
-                    output.Add("Fizz");
-                }
-                else if (num % 5 == 0)
-                {
-                    output.Add("Buzz");
-                }
-                else 
-                {
-                    if (num % 3 != 0) {
-
-                        output.Add($"Divided { inputList[i] } by 3");
-                    }
-
-                    if (num % 5 != 0)
-                    {
-                        output.Add($"Divided { inputList[i] } by 5");
-                    }
-                }
+                PopulateList(inputList[i], output);
             }
 
             return output;
+        }
+
+        public static void PopulateList(string input, List<string> output)
+        {
+            //for those condition, exit out as soon as one condition is met
+            foreach (var condition in conditions)
+            {
+                if (condition.Matches(input))
+                {
+                    output.Add(condition.GetMessage());
+                    return;
+                }
+            }
+            
+            //conditions that need to be checked continously
+            foreach(var condition in conditionsContinuation)
+            {
+                if (condition.Matches(input))
+                {
+                    output.Add(condition.GetMessage());
+                }
+            }
         }
     }
 }

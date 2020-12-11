@@ -130,8 +130,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BuzzMessage.cs" />
     <Compile Include="Controllers\FizzBuzzController.cs" />
+    <Compile Include="Controllers\FizzBuzzMessage.cs" />
+    <Compile Include="Controllers\FizzMessage.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ICondition.cs" />
+    <Compile Include="Controllers\InvalidMessage.cs" />
+    <Compile Include="Controllers\OperationFiveMessage.cs" />
+    <Compile Include="Controllers\OperationThreeMessage.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Interface\" />
     <Folder Include="Models\" />
     <Folder Include="UnitTest\" />
   </ItemGroup>
